@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/*
+	Jeff Hamilton
+	Project 1: CSS Sheet 1
+	
+*/
+
+
+
+body {
+	display: flex;
+	flex-flow: row wrap;
+	line-height: 1.6em;
+}
+header {
+	width: 100%;
+	grid-area: header;
+}
+
+nav.horizontal {
+   padding-top: 15px;
+}
+
+#mainmenu {
+	display: flex;
+	flex-flow: row wrap;
+}
+#special {
+	flex: 1 1 a;
+}
+/* Global styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/*block element grid layout*/
+li {
+   line-height: 2em;
+   text-transform: uppercase;
+   display: inline-block;
+   padding-right: 101px;
+}
+/*format text*/
+a {
+	font: arial; 
+}
+
+footer {
+	position:fixed;
+	left: 0;
+	bottom: 0;
+    font-size: 0.9em;
+    text-align: center;
+	width: 100%;
+	grid-area: footer; 
+}
+ul {
+	list-style: none;
+}
+.indent {
+	padding-top: 15px;
+	padding-left: 100px;
+}
+#content {
+	 padding-top: 0px;
+	 flex: 1 1 auto;
+	 grid-area: content;
+}
+/*float element and layout; absolute positioning*/
+.right {
+	float: right;
+	position: absolute;
+}
+.left {
+	float: left;
+}
+
+.Service {
+	 padding-left: 200px;
+	 font-size: 15px;
+}
+#logo {
+	padding-top: 15px; 
+	width: 240px; height: 300px;
+}
+#clinic {
+	padding-top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	grid-area: clinic; 
+}
+.stretch {
+	width: 75%;
+	display: inline-block;
+}
+/*relative positioning*/
+#mission {
+	font-size: 18pt;
+	left: 0;
+    text-align: center;
+	width: 100%;
+	position: relative;
+	grid-area: mission;
+}
+#name {
+	padding-top: 15px;
+	font-size: 16pt;
+	left: 0;
+    text-align: center;
+	width: 100%;
+	position: relative;
+	grid-area: name;
+}
+/*handle overflow*/
+#topics {
+	overflow: auto;
+	flex-wrap: wrap;
+}
+
+/*Responsive design with @media and flex/flexbox*/
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+  #mainmenu {
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    padding-right: 0;
+    padding: 0.5em 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+  }
+  #clinic, .Service, .stretch {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+/*Create a grid layout*/
+.grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "header"
+    "clinic"
+    "content"
+    "mission"
+    "name"
+    "footer";
+}
+
+h2 {
+	padding-left: 170px;
+}
+
+div.formRow {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 16px;
+	margin: 7px 0px;
+	padding-left: 30px;
+}
+
+div.formRow > * {
+	flex: 1 1 calc(50% - 16px);
+	min-width: 200px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  div.formRow > * {
+    flex: 1 1 100%;
+  }
+}
+
+form#contact {
+	display: flex;
+	flex-flow: row wrap;
+	padding-left: 10px;
+}
+
+form#contact > fieldset {
+	border-radius: 20px;
+	flex: 1 1 300px;
+	font-size: 1em;
+	padding: 10px;
+	margin: 10px;
+}
+
+/*format text area*/
+textarea {
+	margin-top: 10px;
+	height: 70px;
+	width: 95%;
+}
+
+div#buttons {
+	text-align: center;
+	width: 100%;
+}
+
+input[type='submit'], input[type='reset'] {
+	font-size: 1em;
+	padding: 5px;
+	margin: 15px;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+	Jeff Hamilton
+	Project 1: HTML Sheet 6
+	
+-->
+   <title>Hamilton Therapy Clinic</title>
+   
+<!-- Set meta data -->
+   
+   <meta charset="utf-8" />
+   <meta name="viewport"
+    content="width=device-width, intial-scale=1" />
+   <meta name="description" content="Therapy clinic offering speech, physical and occupational therapy" />	
+   
+   <!-- Link to CSS files -->
+   
+   <link href="htc_layout.css" rel="stylesheet" />
+   <link href="htc_styles.css" rel="stylesheet" />
+   <script src="htc_formsubmit.js"></script>
+   
+</head>
+<!--Section elements-->
+<body>
+	<header>
+		<a id="navicon" href="#">
+			<img src="htc_navicon.png" alt="" />
+		</a>
+
+      <span class= "left">
+		<img src="htc_logo2.png" id="logo" alt="Hamilton Therapy Clinic" />
+      </span>
+	  
+	  <!-- Use navigation list with hypertext links -->
+	  
+      <span class= "right">
+		<nav class="horizontal">
+			 <ul class="indent">
+				<li><a href="htc_home.html">Home</a></li>
+				<li><a>Services &#9654;</a>
+				<li><a href="htc_about.html">About Us</a></li>
+				<li><a href="htc_contact.html">Contact Us</a> </li>
+			 </ul>
+				<ul class="Service">
+				  <li class="Indent"><a href="htc_ot.html">Occupational Therapy</a></li>
+				  <li class="Indent"><a href="htc_physical.html">Physical Therapy</a></li>
+				  <li class="Indent"><a href="htc_speech.html">Speech Therapy</a></li>
+				</ul>
+		</nav>
+	  </span>
+	<!--inline images-->
+	<div id= "clinic">
+		<img src="Clinic1.png" alt="Gym 1" />
+		<img src="Clinic2.png" alt="Gym 1" />
+		<img src="Clinic3.png" atl="Therapist working with a child" />
+		<span class="stretch"></span>
+	</div>
+		
+	</header>
+   
+   <main>
+	  <h2>Please complete the information below and someone will be in touch as soon as possible.</h2>
+	  <br/>
+	  
+	   <form id="contact" action="http://www.example.com/HTC/contact" method="post">
+		<fieldset id="custInfo">
+			<legend>Customer Information</legend>
+			
+			<!--Text input type Also validate with required field-->		
+			<div class="formRow">
+				<label for="custname">Name*</label>
+				<input name="custName" id="custname" type="text" placeholder="first and last name" required />
+			</div>
+			
+			<div class="formRow">
+				<label for="street">Street address</label>
+				<input name="custStreet" id="street" type="text"/>
+			</div>
+			
+			<div class="formRow">
+				<label for="city">City</label>
+				<input name="custCity" id="city" type="text" list="cities" />
+				<datalist id="cities">
+					<option value="Charlotte">
+					<option value="Cornelius">
+					<option value="Huntersville">
+					<option value="Mooresville">
+				</datalist>
+			</div>
+			
+			<!--validate with field length-->
+			<div class="formRow">
+				<label for="state">State</label>
+				<input name="custState" id="state" type="text" value="NC" maxlegnth="2" />
+			</div>
+			
+			<!--validate with pattern-->
+			<div class="formRow">
+				<label for="zip">Zip code</label>
+				<input name="custZip" id="zip" type="text" placeholder="nnnnn (-nnnn)"
+						pattern="^\d{5}(-\d{4})?$" />
+			</div>
+			
+			<!--one input set for mobile devices-->
+			<div class="formRow">
+				<label for="phone">Phone Number*</label>
+				<input name="custPhone" id="phone" type="tel" inputmode="tel" placeholder="(nnn) nnn-nnnn" required />
+			</div>
+			
+			<div class="formRow">
+				<label for="email">Email</label>
+				<input name="custemail" id="email" type="email"/>
+			</div>
+			
+		</fieldset>
+	    
+		<fieldset id="custQuestions">
+		
+			<legend>Information and concerns</legend>
+			
+			<!--date input type-->
+			<div class="formRow">
+				<label for="today">Date of request:</label>
+				<input name="todayDate" id="today" type="date" />
+			</div>
+			
+			<!--selection list-->
+			<div class="formRow">
+				<label for="type">Therapy type:</label>
+				<select name="therType" id="type">
+					<option value="type1">Speech</option>
+					<option value="type2">Physical</option>
+					<option value="type3">Occupational</option>
+				</select>
+			</div>
+			
+			<!--radio buttons-->
+			<div class="formRow">
+				<label>Preferred contact:</label>
+				<fieldset class="contactGroup">
+					<label for="tele">Phone</label>
+					<input name="teleContact" id="tele" value="telephone" type="radio" />
+					<label for="cemail">Email</label>
+					<input name="emailContact" id="cemail" value="email" type="radio" />
+					<label for="cmail">Mail</label>
+					<input name="mailContact" id="cmail" value="mail" type="radio" />
+				</fieldset>
+			</div>
+
+			<!--spinner-->
+			<div class="formRow">
+				<label for="visSpin"># of visits per week:</label>
+				<input name="visits" id="visSpin" type="number" value="1" step="1" min="1" max="5" />
+			</div>
+			
+			<!--range slider-->
+			<div class="formRow">
+				<label for="rangeBox">Level of concern:</label>
+				<input name="concern" id="rangeBox" type="range" value="5" step="1" min="0" max="10" />
+			</div>
+			
+			<!--text area-->
+			<label for="commBox">Tell us about your child:</label>
+			<textarea name="desc" id="commBox"></textarea>
+			<br/>
+			
+			<!--check box-->
+			<input name="accomodations" id="accom" value="yes" type="checkbox" />
+			<label for="accom">Do you need special accomodations?</label>
+			
+		</fieldset>
+		
+		<!--form buttons-->
+		<div id="buttons">
+			<input type="submit" value="Submit" />
+			<input type="reset" value="Reset/Cancel" />
+		</div>
+		
+	  </form>
+   </main>
+   
+   <div id= "mission">
+		<p>Empowering children and families to reach their fullest potential through movement, play, and connection.</p>
+   </div>	
+
+   <div id= "name">
+		<p>Hamilton Therapy Clinic</p>
+   </div>	
+   
+   <footer id= "footer">
+   <!--character references-->
+      Hamilton Therapy Clinic &#8226; 1234 Elm Street, Huntersville NC &#8226; (704) 948-5550
+   </footer>
+</body>
+</html>
